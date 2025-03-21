@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthPro-Fitness</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Home Screen -->
+        <div id="homeScreen" class="screen">
+            <div class="home-frame">
+                <h1 class="title">Welcome to HealthPro-Fitness</h1>
+                <div class="input-frame">
+                    <label for="goalInput">Goal (# of reps):</label>
+                    <input type="number" id="goalInput" value="10" min="1">
+                </div>
+                <button id="startButton" class="primary-button">Start Counting Reps!</button>
+            </div>
+        </div>
+
+        <!-- Workout Screen -->
+        <div id="workoutScreen" class="screen hidden">
+            <div class="video-container">
+                <video id="video" playsinline></video>
+                <canvas id="canvas"></canvas>
+                
+                <!-- GIF overlay - ONLY shown after clicking start but before pressing SPACE -->
+                <div id="gifOverlay" class="gif-overlay">
+                    <img id="demoGif" src="gif/pushupvid.gif" alt="Pushup demonstration">
+                    <div class="overlay-text">Press SPACE to start!</div>
+                </div>
+                
+                <!-- Countdown elements -->
+                <div id="countdown" class="countdown hidden"></div>
+                <div id="startText" class="start-text hidden">Start!</div>
+                
+                <!-- Feedback elements -->
+                <div id="halfRepText" class="half-rep-text hidden"></div>
+                <div id="goalText" class="goal-text hidden"></div>
+                <div id="progressBar" class="progress-bar"></div>
+                <div class="escape-text">Hold ESC to finish</div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="screen hidden">
+            <div class="results-frame">
+                <h2>Your Results</h2>
+                <div id="resultsContent" class="results-content"></div>
+                <button id="closeButton" class="secondary-button">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
